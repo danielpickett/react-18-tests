@@ -1,5 +1,11 @@
 import './App.scss'
-import { useState, startTransition, useDeferredValue, ChangeEvent } from 'react'
+import { useState, startTransition, ChangeEvent } from 'react'
+import { atom, useRecoilState_TRANSITION_SUPPORT_UNSTABLE } from 'recoil'
+
+const textValueAtom = atom({
+  key: 'textValue',
+  default: '',
+})
 
 const arr = Array(18).fill('x')
 
@@ -13,7 +19,9 @@ function blockThreasd(millis: number) {
 }
 
 export const App = () => {
-  const [value, setValue] = useState('')
+  // const [value, setValue] = useState('')
+  const [value, setValue] =
+    useRecoilState_TRANSITION_SUPPORT_UNSTABLE(textValueAtom)
 
   const handleChange = (value: string) => {
     startTransition(() => {
