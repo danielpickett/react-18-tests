@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  display: block;
+  padding: 5rem;
+  width: max-content;
+  margin: 5rem auto;
+}
+
+.slider {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 10rem;
+}
+
+.slider-input {
+  width: 20rem;
+}
+.slider-display {
+  width: 5rem;
+}
+
+.text-input {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.cells {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 50rem;
+  margin-top: 1rem;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00000008;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid black;
+}
