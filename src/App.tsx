@@ -23,7 +23,6 @@ export const App = () => {
 
   return (
     <div className="App">
-      {/* <Slider value={count} onChange={setCount} /> */}
       <TextInput value={value} onChange={handleChange} />
       {value}
       <div className="cells">
@@ -55,17 +54,12 @@ const TextInput = ({
   )
 }
 
-function getRandomInt(max: number) {
-  return Math.floor(Math.random() * max)
-}
-const num = () => getRandomInt(255).toFixed(0)
-
 const Cell = ({ count }: { count: number }) => {
   blockThreasd(50)
 
-  const r = num(),
-    g = num(),
-    b = num()
+  const r = rando()
+  const g = rando()
+  const b = rando()
 
   return (
     <div
@@ -80,8 +74,10 @@ const Cell = ({ count }: { count: number }) => {
   )
 }
 
-const p = parseInt
+const rando = () => Math.floor(Math.random() * 255).toFixed(0)
 const getTextColor = (r: string, g: string, b: string) =>
-  Math.round((p(r) * 299 + p(g) * 587 + p(b) * 114) / 1000) > 125
+  Math.round(
+    (parseInt(r) * 299 + parseInt(g) * 587 + parseInt(b) * 114) / 1000
+  ) > 125
     ? 'black'
     : 'white'
