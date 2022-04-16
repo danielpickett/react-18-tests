@@ -23,16 +23,10 @@ export const App = () => {
   const [value, setValue] =
     useRecoilState_TRANSITION_SUPPORT_UNSTABLE(textValueAtom)
 
-  const handleChange = (value: string) => {
-    startTransition(() => {
-      setValue(value)
-    })
-  }
-
   return (
     <div className="App">
       {/* <Slider value={count} onChange={setCount} /> */}
-      <TextInput value={value} onChange={handleChange} />
+      <TextInput value={value} onChange={setValue} />
       {value}
       <div className="cells">
         {arr.map((_, index) => (
@@ -56,6 +50,7 @@ const TextInput = ({
     const newValue = event.target.value
     setlocalValue(newValue)
     startTransition(() => onChange(newValue))
+    // onChange(newValue)
   }
 
   return (
