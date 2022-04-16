@@ -15,15 +15,9 @@ function blockThreasd(millis: number) {
 export const App = () => {
   const [value, setValue] = useState('')
 
-  const handleChange = (value: string) => {
-    startTransition(() => {
-      setValue(value)
-    })
-  }
-
   return (
     <div className="App">
-      <TextInput value={value} onChange={handleChange} />
+      <TextInput value={value} onChange={setValue} />
       {value}
       <div className="cells">
         {arr.map((_, index) => (
@@ -47,6 +41,7 @@ const TextInput = ({
     const newValue = event.target.value
     setlocalValue(newValue)
     startTransition(() => onChange(newValue))
+    // onChange(newValue)
   }
 
   return (
